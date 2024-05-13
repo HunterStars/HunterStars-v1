@@ -1,0 +1,89 @@
+@import 'common/vars';
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+textarea {
+   @extend %text-box;
+}
+
+%text-box {
+   padding: 10px 16px 9px 16px;
+   background: $color_background;
+   border: 2px solid $text_color_secondary;
+   border-radius: 4px;
+   color: rgba($text_color_secondary, .7);
+   font-size: 1em;
+   transition: border-color 155ms;
+   outline: none;
+
+   &:focus {
+      border-color: $bg_color_dark;
+   }
+
+   &::placeholder {
+      opacity: .7;
+   }
+}
+
+.input-group {
+   display: block;
+
+   .input-text {
+      display: inline-block;
+   }
+}
+
+.input-text {
+   display: block;
+   position: relative;
+   margin-top: 10px;
+
+   & %text-box {
+      width: 100%;
+
+      &::placeholder {
+         transition: opacity 155ms;
+      }
+
+      &:focus {
+         &::placeholder {
+            opacity: 0;
+         }
+
+         & ~ .header {
+            transform: scale(1);
+            color: $bg_color_dark;
+            transition: transform 155ms;
+         }
+      }
+
+
+   }
+
+   .m-icons {
+      position: absolute;
+      margin: 10px 0 8px 12px;
+      top: 0;
+      left: 0;
+      font-size: 1.5rem;
+      color: $text_color_secondary;
+
+      & + %text-box {
+         padding-left: 46px;
+      }
+   }
+
+   .header {
+      position: absolute;
+      top: -8px;
+      left: 8px;
+      font-size: 0.85rem;
+      padding: 0 6px;
+      background: $color_background;
+      font-weight: 500;
+      transform: scale(0);
+      transition: transform 155ms;
+   }
+}

@@ -1,0 +1,179 @@
+.ck-content {
+   color: #9b9ea2;
+   background-color: #242d3c !important;
+   padding: 0.575rem 1rem !important;
+   border: 2px solid #151c25 !important;
+   min-height: 100px;
+}
+
+@import "../vendor/ckeditor/dark-layout";
+
+
+.tagify, .tagify.form-control {
+   padding: 5px 7px 7px 7px;
+
+   tag.tagify__tag {
+      vertical-align: middle;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      margin: -1px 3.75px 0 3.75px;
+      border: 1px solid #5d50ed;
+      background-color: #7267EF;
+      word-break: break-all;
+      box-sizing: border-box;
+      height: 28px;
+
+      &:hover {
+         background-color: rgba(114, 103, 239, 0.3);
+      }
+
+      div {
+         color: #ffffff;
+         border-right: 2px solid rgba(255, 255, 255, 0.35);
+         padding: 0 8px 0 0;
+
+         &:before {
+            box-shadow: unset;
+            inset: unset;
+         }
+      }
+
+      .tagify__tag__removeBtn {
+         position: relative;
+         display: inline-block;
+         margin: 0 -8px 0 2px;
+         padding: 0 8px 0 10px;
+         background: {
+            image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==);
+            size: 8px;
+            repeat: no-repeat;
+            position: center;
+         };
+         width: 8px;
+         line-height: 1;
+         opacity: 0.75;
+
+
+         &:after {
+            content: unset;
+         }
+      }
+
+      &.tagify--notAllowed {
+         background-color: rgba(234, 77, 77, .8);
+      }
+   }
+}
+
+.tagify__dropdown {
+   .tagify__dropdown__wrapper {
+      background-color: #242d3c;
+      border: 1px solid #151c25;
+
+      .tagify__dropdown__item {
+         border-radius: 4px;
+         padding: 10px;
+      }
+
+      .tagify__dropdown__item--active {
+         background-color: rgba(114, 103, 239, 0.1);
+         color: inherit;
+      }
+
+      .tagify__dropdown__footer {
+         font-size: 11px;
+         margin-top: 0;
+      }
+   }
+}
+
+#simpleList {
+   > .list-group[disabled] {
+      .sort-handle{
+         opacity: .3;
+         cursor: no-drop;
+      }
+   }
+
+   li {
+      list-style: none;
+
+      &.sortable-group {
+         .list-group-item {
+            img {
+               height: 73px;
+               border: 1px solid rgba(0, 0, 0, 0.2);
+               border-radius: 10%;
+
+               &[src*="/novel-cover.png"] {
+                  filter: invert(70%);
+               }
+            }
+
+            a {
+               margin-bottom: -5px;
+            }
+         }
+
+         .list-group {
+            margin-left: 30px;
+         }
+      }
+   }
+
+   .list-group-item {
+      padding: 16.66667px 25px 16.66667px 0;
+
+      &.accordion-button {
+         cursor: pointer;
+
+         &:not(.collapse) {
+            color: inherit;
+            background-color: unset;
+         }
+      }
+
+      > :first-child {
+         padding-left: 25px;
+
+         &:not(.sort-handle) {
+            &::before {
+               display: none;
+            }
+         }
+      }
+
+      .sort-handle {
+         cursor: move;
+         cursor: -webkit-grabbing;
+         padding: 0 1rem;
+
+         &::before {
+            display: inline;
+         }
+      }
+   }
+}
+
+#group-form {
+   .uppy-Root {
+      display: none;
+   }
+
+   &[data-group] {
+      .uppy-Root {
+         display: unset;
+      }
+
+      .info {
+         margin-top: 1.5rem;
+
+         .info-only-for-new {
+            display: none;
+         }
+      }
+
+   }
+}

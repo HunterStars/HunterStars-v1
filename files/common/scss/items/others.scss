@@ -1,0 +1,52 @@
+@import "common/vars";
+
+$scroll-background: rgba($text_color_secondary_light, .1);
+$scroll-thumb: $text_color_secondary_light;
+$scroll-thumb-hover: $bg_color_principal;
+
+.scrollbar {
+   scrollbar-width: thin;
+   scrollbar-color: $scroll-thumb $scroll-background;
+
+   &:not(.no-hover):hover {
+      scrollbar-color: $scroll-thumb-hover $scroll-background;
+
+      &::-webkit-scrollbar-thumb {
+         background: $scroll-thumb-hover;
+      }
+   }
+
+   &::-webkit-scrollbar {
+      background: $scroll-background;
+      border-radius: 3px;
+      width: 6px;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      background: $scroll-thumb;
+      border-radius: 3px;
+      box-shadow: $shadow-1dp;
+   }
+}
+
+.bg {
+   &-error-color, &-success-color, &-load-color {
+      color: $color_light;
+      text-shadow: 0 0 2px black;
+      font-weight: bold;
+   }
+
+   &-error-color {
+      background: $state-dropped;
+   }
+
+   &-warning-color {
+      background: $bg-color_light;
+      color: $color_dark;
+      text-shadow: 0 0 2px white;
+   }
+
+   &-success-color {
+      background: $state_active;
+   }
+}

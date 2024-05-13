@@ -1,0 +1,28 @@
+@import "common/vars";
+
+.chip{
+   display: inline-flex;
+   align-items: center;
+   margin: 4px;
+   font-size: .8rem;
+   font-weight: bold;
+   letter-spacing: .0178571429em;
+   text-decoration: none;
+   height: 32px;
+   padding: 4px 10px;
+   border-radius: 16px;
+   background: rgba($bg_color_principal, .4);
+   color: $bg_color_dark;
+   overflow: auto hidden;
+   flex-flow: row nowrap;
+
+   &:hover{
+      background: $bg_color_principal;
+      color: $color_background;
+   }
+
+   .m-icons{
+      font-size: 1.2rem;
+      margin-right: 4px;
+   }
+}

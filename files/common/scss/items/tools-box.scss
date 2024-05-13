@@ -1,0 +1,44 @@
+@import "common/vars";
+
+.tools-box {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   flex-wrap: wrap;
+
+   &.mosaic {
+      .btn {
+         display: inline-block;
+
+         .m-icons {
+            font-size: 2.25rem;
+            margin: 0 0 5px 0;
+         }
+      }
+   }
+
+   .btn {
+      border: none;
+      border-radius: 0;
+      padding: 13px 8px;
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      .text span, > span:not(.text) {
+         display: block;
+         overflow: hidden;
+         white-space: nowrap;
+         text-overflow: ellipsis;
+         font-size: 0.9rem;
+      }
+
+      .text span:not(:first-child) {
+         color: $text-color_secondary;
+         text-transform: none;
+      }
+
+      .m-icons {
+         font-size: 1.625rem;
+      }
+   }
+}

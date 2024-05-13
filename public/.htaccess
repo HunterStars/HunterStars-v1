@@ -1,0 +1,18 @@
+#Deshabilitar listado de directorios.
+Options -Indexes
+IndexOptions -FancyIndexing
+IndexIgnore *.php *.html
+
+#Permitiendo peticiones CORS a subdominios.
+SetEnvIf Origin ^((?:http|https)\://(?:.+\.)+hunterstars\.xyz?)$    CORS_ALLOW_ORIGIN=$1
+Header append Access-Control-Allow-Origin  %{CORS_ALLOW_ORIGIN}e    env=CORS_ALLOW_ORIGIN
+Header append Access-Control-Allow-Methods: GET    env=CORS_ALLOW_ORIGIN
+Header merge  Vary "Origin"
+
+#Redireccionar peticiones si el archivo solicitado no existe.
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule .* index.php [L]

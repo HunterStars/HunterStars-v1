@@ -1,0 +1,19 @@
+@import "vars";
+
+%blackout {
+   position: absolute;
+   content: "";
+   background: $color_dark;
+   margin-top: 50px;
+   transition: opacity 155ms;
+   pointer-events: none;
+   top: 0;
+   opacity: 0;
+}
+
+%blackout-show {
+   width: 100vw;
+   height: 100vh;
+   opacity: .5;
+   pointer-events: all;
+}

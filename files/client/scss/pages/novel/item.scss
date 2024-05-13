@@ -1,0 +1,391 @@
+@import "common/mixins";
+@import "common/tools";
+
+main {
+   .top-data {
+      .box {
+         .content {
+            display: flex;
+            flex-direction: row;
+            padding-top: 20px;
+
+            figure {
+               display: inline-block;
+               position: relative;
+               margin: 0;
+               height: 370px;
+               flex-grow: 0;
+
+               img {
+                  height: 100%;
+               }
+
+               figcaption {
+                  position: absolute;
+                  bottom: 0;
+                  width: 100%;
+                  padding: 8px 10px;
+
+                  div {
+                     display: flex;
+                     flex-flow: row nowrap;
+                     align-items: center;
+                     justify-content: center;
+                     width: 100%;
+                     padding: 6px;
+                     font-size: 1.25rem;
+                     text-transform: uppercase;
+
+                     .m-icons {
+                        font-size: 1.8rem;
+                        margin: 0 8px 0 0;
+                     }
+
+                     span {
+                        font-size: 1.17rem;
+                     }
+                  }
+
+                  @include screen(min-width, $breakpoint-750) {
+                     &.active {
+                        background: $state_active;
+                     }
+                     &.paused {
+                        background: $state-paused;
+                     }
+                     &.dropped {
+                        background: $state-dropped;
+                     }
+                     &.finished {
+                        background: $state-finished;
+                     }
+                  }
+
+                  &.active, &.dropped {
+                     div {
+                        border: 2px dashed $color_background;
+                        color: $color_background;
+                     }
+                  }
+
+                  &.paused, &.finished {
+                     div {
+                        border: 2px dashed $bg_color_dark;
+                        color: $bg_color_dark;
+                     }
+                  }
+               }
+            }
+
+            .info {
+               display: inline-block;
+               padding: 0 0 0 30px;
+
+               h4, h5.subtitle-2, .rating {
+                  margin: 0 0 5px;
+               }
+
+               h5.subtitle-2 {
+                  color: $text_color_secondary;
+               }
+
+               .rating {
+                  span {
+                     color: $text_color_secondary_light;
+                     font-size: 1.5rem;
+                  }
+
+                  .m-icons {
+                     color: gold;
+                     font-size: 1.9rem;
+                  }
+
+                  span, .m-icons {
+                     vertical-align: middle;
+                  }
+               }
+
+               nav {
+                  margin-top: 13px;
+               }
+
+               .synopsis {
+                  margin-top: 16px;
+                  max-height: 186px;
+                  overflow: hidden auto;
+                  text-align: justify;
+
+                  p {
+                     &:first-child {
+                        margin-top: 0;
+                     }
+
+                     &:last-child {
+                        margin-bottom: 0;
+                     }
+                  }
+               }
+            }
+
+            @include screen(max-width, $breakpoint-750) {
+               figure {
+                  figcaption {
+                     top: 0;
+                     bottom: unset;
+                     width: 100px;
+                     height: 100px;
+
+                     &.active div {
+                        background: $state_active;
+                     }
+
+                     &.paused div {
+                        background: $state-paused;
+                     }
+
+                     &.dropped div {
+                        background: $state-dropped;
+                     }
+
+                     &.finished div {
+                        background: $state-finished;
+                     }
+
+                     div {
+                        width: 180px;
+                        position: absolute;
+                        top: 30px;
+                        left: -45px;
+                        transform: rotate(-45deg);
+                        box-shadow: $shadow-4dp;
+                     }
+                  }
+               }
+
+               .info {
+                  .synopsis {
+                     max-height: 140px;
+                  }
+               }
+            }
+
+            @include screen_between(width, $breakpoint-750, $breakpoint-450) {
+               padding: 10px;
+
+               figure {
+                  height: auto;
+
+                  img {
+                     max-width: 140px;
+                     max-height: 200px;
+                  }
+
+                  figcaption {
+                     div {
+                        width: 110px;
+                        top: 0;
+                        left: -40px;
+
+                        .m-icons {
+                           font-size: 1rem;
+                           margin: 0 2px 0 0;
+                        }
+
+                        span {
+                           font-size: 0.8rem;
+                        }
+                     }
+                  }
+               }
+
+               .info {
+                  padding-left: 15px;
+
+                  > div {
+                     height: 200px;
+                     max-height: 200px;
+                     overflow: hidden auto;
+                  }
+
+                  .synopsis {
+                     margin-left: -155px;
+                  }
+               }
+            }
+
+            @include screen(max-width, $breakpoint-450) {
+               flex-direction: column;
+               padding: 10px 0;
+
+               figure {
+                  margin: -15px 0 0 0;
+                  min-height: 210px;
+                  height: auto;
+
+                  img {
+                     width: 100%;
+                  }
+               }
+
+               .info {
+                  border-top: 1px solid $text_color_secondary_light;
+                  margin-top: -210px;
+                  padding: 0 20px;
+                  z-index: 1;
+                  background-color: $color_background;
+                  border-radius: 8px 8px 0 0;
+
+                  h4 {
+                     margin-top: 16px;
+                  }
+               }
+            }
+         }
+
+         footer {
+            .btn-text:not([disabled]) {
+               &:first-child {
+                  color: red;
+               }
+
+               &:nth-child(2) {
+                  color: $text_color_primary_light;
+               }
+            }
+         }
+      }
+   }
+
+   .bottom-data {
+      .right-column {
+         .vol-cap-list {
+            .tabs-content {
+               padding-top: 10px;
+            }
+
+            .tab-item {
+               > .list {
+                  flex: {
+                     grow: 1;
+                     shrink: 1;
+                  }
+                  width: 100%;
+                  margin: 0 -15px;
+
+                  .list {
+                     padding-left: 37px;
+                     margin: 0 -5px 0 -5px;
+                     box-shadow: inset 0 0 2px 0 $text_color_secondary;
+
+                     .item {
+                        &[disabled] {
+                           .text, .subtitle-2, .btn {
+                              color: $text_color_secondary_light;
+                           }
+                        }
+
+                        &:not(.focus) .text {
+                           color: rgba($text_color_secondary, .7);
+                        }
+
+                        .subtitle-2 {
+                           color: rgba($text_color_secondary, .3);
+                        }
+                     }
+                  }
+
+                  .item.focus:not(.hover)::after {
+                     opacity: 0.15;
+                  }
+
+                  @include screen(max-width, $breakpoint-450) {
+                     .item {
+                        margin: 0;
+                        padding: {
+                           right: 8px;
+                           left: 8px;
+                        };
+
+                        > {
+                           .text {
+                              padding-left: 8px;
+                           }
+
+                           .m-icons {
+                              margin-right: -3px;
+                           }
+                        }
+                     }
+
+                     .list {
+                        padding-left: 0;
+
+                        .item {
+                           padding-left: 13px;
+
+                           .text {
+                              font-size: 1rem;
+                           }
+
+                           .subtitle-2 {
+                              font-size: .7rem;
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      .left-column {
+         .donate {
+            .subtitle-2 {
+               color: $text_color_secondary;
+            }
+
+            .list {
+               margin-top: 5px;
+            }
+
+            .paypal-method {
+               figure {
+                  max-height: 49px;
+
+                  img {
+                     height: 45px;
+                     background: rgb(0, 112, 186, .6);
+                  }
+               }
+            }
+         }
+
+         .provider {
+            figure {
+               max-height: 77px;
+
+               img {
+                  height: 73px;
+               }
+            }
+
+            .rate {
+               .m-icons {
+                  @include star-rate;
+                  margin: 0;
+               }
+            }
+         }
+
+         .team {
+            figure {
+               max-height: 62px;
+
+               img {
+                  height: 58px;
+               }
+            }
+         }
+      }
+   }
+}

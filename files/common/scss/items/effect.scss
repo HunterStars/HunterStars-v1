@@ -1,0 +1,45 @@
+@import "common/vars";
+
+.btn:hover::before, .btn:focus::after,
+.hover::before, .focus::after{
+   position: absolute;
+   content: "";
+   top: 0;
+   right: 0;
+   height: 100%;
+   width: 100%;
+   border-radius: 4px;
+   transition: opacity 150ms, color 150ms;
+   pointer-events: none;
+}
+
+.btn:hover::before,
+.hover::before{
+   background-color: $text_color_primary;
+   opacity: .05;
+}
+
+.btn:focus::after,
+.focus::after{
+   background: $bg_color_principal;
+   animation: ClickEffect 150ms forwards;
+   opacity: .26;
+}
+
+.btn:focus,
+.focus{
+   transition: opacity 150ms, color 150ms;
+   color: $bg_color_dark;
+}
+
+@keyframes ClickEffect {
+   0% {
+      transform: scale(0);
+      opacity: 0;
+      border-radius: 50%;
+   }
+
+   100% {
+      transform: scale(1);
+   }
+}

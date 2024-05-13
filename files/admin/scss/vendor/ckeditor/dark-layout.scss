@@ -1,0 +1,180 @@
+$ckeditor-fill-dark: #1c232f;
+$ckeditor-fill-light: #242d3c;
+$ckeditor-item-hover: #7267ef;
+$ckeditor-toolbar-text: #b6bcc5;
+$ckeditor-separator: darken($ckeditor-toolbar-text, 40);
+$ckeditor-focus-shadow: 0 0 0 3px lighten($ckeditor-fill-light, 30), 0 0;
+
+.document-editor {
+   border-color: $ckeditor-fill-light;
+
+   .document-editor__toolbar {
+      border-bottom: 1px solid $ckeditor-fill-dark;
+   }
+
+   .document-editor__editable-container {
+      background-color: darken(#242d3c, 2);
+
+      .ck-content {
+         background-color: lighten(rgba(36, 45, 60), 3);
+         border-color: #151c25;
+         box-shadow: 0 0 5px 1px rgb(0 0 0 / 20%);
+
+         > h1:first-child {
+            border-bottom: 1px solid darken(#242d3c, 2);
+         }
+
+         blockquote {
+            border-left-color: $ckeditor-separator;
+         }
+      }
+   }
+}
+
+.document-editor__toolbar, .ck-toolbar-container, .ck-body-wrapper {
+   .ck.ck-balloon-panel, .ck.ck-toolbar {
+      background: $ckeditor-fill-light;
+      border: 1px solid $ckeditor-fill-light !important;
+
+      &.ck-balloon-panel_with-arrow {
+         &.ck-balloon-panel_arrow_s {
+            &, &.ck-toolbar-container {
+               &:before, &:after {
+                  border-top-color: $ckeditor-fill-light;
+               }
+            }
+         }
+
+         &.ck-balloon-panel_arrow_nw, &.ck-balloon-panel_arrow_n {
+            &:before, &:after {
+               border-bottom-color: $ckeditor-fill-light;
+            }
+         }
+      }
+
+      .ck {
+         &.ck-splitbutton {
+            &:hover, &.ck-splitbutton_open {
+               & > .ck-button:not(.ck-disabled) {
+                  &:not(.ck-on) {
+                     &:not(:hover) {
+                        background: rgba($ckeditor-item-hover, .25)
+                     }
+
+                     &:hover {
+                        background: rgba($ckeditor-item-hover, .4)
+                     }
+                  }
+
+                  &:after {
+                     background: $ckeditor-separator;
+                  }
+               }
+            }
+
+         }
+
+         &.ck-button {
+            color: $ckeditor-toolbar-text;
+
+            &:not(.ck-disabled):hover {
+               background: rgba($ckeditor-item-hover, .25)
+            }
+
+            &.ck-on {
+               background: rgba($ckeditor-item-hover, .50)
+            }
+
+            &:not(.ck-disabled):not(.ck-switchbutton):focus {
+               border-color: $ckeditor-fill-light;
+               box-shadow: $ckeditor-focus-shadow;
+            }
+         }
+
+         &.ck-toolbar__separator {
+            background: $ckeditor-separator;
+         }
+
+         &.ck-labeled-field-view, .ck-collapsible__children, .ck-balloon-rotator__content {
+            .ck-link-form {
+               .ck-button-save, .ck-button-cancel {
+                  border-top-color: $ckeditor-separator;
+
+                  &:after {
+                     border-right-color: $ckeditor-separator;
+                  }
+               }
+            }
+
+            .ck {
+               &.ck-link-actions__preview {
+                  &, .ck-button__label {
+                     color: $ckeditor-item-hover;
+                  }
+               }
+
+               &.ck-list {
+                  background: transparent;
+               }
+
+               &.ck-input:focus, &.ck-switchbutton:focus .ck-button__toggle {
+                  box-shadow: $ckeditor-focus-shadow;
+               }
+
+               &.ck-input, &.ck-label {
+                  color: $ckeditor-toolbar-text;
+               }
+
+               &.ck-input {
+                  background: lighten(rgba(36, 45, 60), 3);
+                  border-color: $ckeditor-separator;
+               }
+
+               &.ck-label {
+                  background: $ckeditor-fill-light;
+               }
+
+               &.ck-button {
+                  &:hover, &.ck-on {
+                     background: transparent;
+                  }
+
+                  &.ck-on {
+                     color: $ckeditor-item-hover;
+                  }
+               }
+            }
+         }
+
+         &.ck-dropdown {
+            .ck-dropdown__panel {
+               background: $ckeditor-fill-light;
+               border: 1px solid $ckeditor-fill-dark;
+               box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+
+               .ck-list {
+                  background: none;
+               }
+
+               .ck-color-table .ck-button {
+                  border-bottom-color: $ckeditor-separator;
+               }
+
+               .ck-label {
+                  color: $ckeditor-toolbar-text;
+               }
+
+               .ck.ck-list-properties.ck-list-properties_with-numbered-properties > .ck-collapsible {
+                  border-top-color: $ckeditor-separator;
+
+                  .ck.ck-collapsible__children {
+                     .ck-labeled-field-view:first-child {
+                        margin-top: 10px;
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

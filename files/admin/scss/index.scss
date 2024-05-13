@@ -1,0 +1,19 @@
+.pc-container {
+   margin-left: 0;
+}
+
+.pc-header {
+   left: 0;
+
+   .pcm-logo {
+      margin-left: 0;
+   }
+
+   .header-wrapper {
+      align-items: center;
+   }
+}
+
+#mobile-collapse {
+   display: none;
+}

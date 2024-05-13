@@ -1,0 +1,48 @@
+@import "vars";
+
+@mixin screen($key, $value) {
+   @if ($key == "max-width" or $key == "max-device-width") {
+      $value: $value - 1;
+   }
+   @media only screen and ($key: $value) {
+      @content
+   }
+}
+
+@mixin screen_and($key1, $value1, $key2, $value2) {
+   @media only screen and ($key1: $value1) and ($key2: $value2) {
+      @content
+   }
+}
+
+@mixin screen_between($wh, $max, $min) {
+   @media only screen and (max-#{$wh}: #{$max - 1}) and (min-#{$wh}: #{$min}) {
+      @content
+   }
+}
+
+@mixin backdrop-blur($value) {
+   backdrop-filter: blur($value);
+   -webkit-backdrop-filter: blur($value);
+}
+
+@mixin star-rate($font-size: 1.2rem, $shadow-width: 1px){
+   color: $bg_color_light;
+   text-shadow: 0 0 $shadow-width $color_dark;
+   font-size: $font-size;
+}
+
+@mixin keyframes($name) {
+   @-webkit-keyframes #{$name} {
+      @content;
+   }
+   @-moz-keyframes #{$name} {
+      @content;
+   }
+   @-ms-keyframes #{$name} {
+      @content;
+   }
+   @keyframes #{$name} {
+      @content;
+   }
+}

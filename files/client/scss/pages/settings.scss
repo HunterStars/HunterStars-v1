@@ -1,0 +1,49 @@
+main{
+   .left-column{
+      header{
+         padding: 25px;
+
+         img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+         }
+      }
+
+      .content{
+         .list{
+            .item{
+               margin: {
+                  left: 0;
+                  right: 0;
+               };
+               padding: {
+                  top: .7rem;
+                  bottom: .7rem;
+                  left: 1rem;
+                  right: 1rem;
+               };
+            }
+         }
+      }
+
+      .tabs-header{
+         .tab[pressed]{
+            color: #c67600;
+         }
+      }
+   }
+
+   .right-column{
+      hr{
+         border: 0;
+         border-top: 1px solid rgba(0, 0, 0, 0.2);
+      }
+      label{
+         font-size: .95rem;
+      }
+      label span{
+         color: red;
+      }
+   }
+}

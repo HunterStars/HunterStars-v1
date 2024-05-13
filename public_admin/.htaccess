@@ -1,0 +1,15 @@
+#Deshabilitar listado de directorios.
+Options -Indexes
+IndexOptions -FancyIndexing
+IndexIgnore *.php *.html
+
+#MimeTypes
+AddType text/javascript .mjs
+
+#Redireccionar peticiones si el archivo solicitado no existe.
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule .* index.php [L]

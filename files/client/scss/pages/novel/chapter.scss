@@ -1,0 +1,86 @@
+@import "common/vars";
+@import "common/mixins";
+@import "common/tools";
+
+#novel-reader {
+   .content, footer{
+      .tools-box {
+         background: rgba($text_color_primary, .02);
+         margin: 0 -20px;
+         flex-wrap: nowrap;
+         box-shadow: $shadow-1dp;
+
+         .btn, .btn-icon {
+            height: 45px;
+         }
+
+         .btn .m-icons {
+            margin: 0;
+
+            &:first-child, &:last-child{
+               margin: 0;
+            }
+         }
+
+         .btn-icon {
+            width: 3rem;
+            min-width: 0;
+         }
+
+         @include screen(max-width, $breakpoint-450){
+            .btn span{
+               display: none;
+            }
+         }
+      }
+   }
+
+   footer{
+      padding: {
+         top: 0;
+         bottom: 0;
+      };
+      .tools-box{
+         background: unset;
+         box-shadow: unset;
+         flex-grow: 1;
+
+         .btn{
+            height: unset;
+         }
+      }
+
+   }
+
+   .content {
+      padding-top: 0;
+
+      .ck-content{
+         padding: 0 15px;
+         h1{
+            font-size: calc(1.35rem + 1.2vw);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            line-height: 1.2;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $text_color_secondary_light;
+         }
+
+         img{
+            max-width: 100%;
+         }
+      }
+   }
+}
+
+aside.left-column{
+   .box.provider{
+      .rate{
+         .m-icons{
+            @include star-rate;
+         }
+      }
+   }
+}

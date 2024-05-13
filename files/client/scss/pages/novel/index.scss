@@ -1,0 +1,72 @@
+@import "common/vars";
+@import "common/mixins";
+
+@import "../../layout/listing-layout";
+
+#header-content {
+   .tools-box {
+      @include screen(max-width, $breakpoint-450) {
+         .btn {
+            padding: {
+               left: 5px;
+               right: 5px;
+            };
+
+            span {
+               font-size: .74rem;
+            }
+         }
+      }
+   }
+}
+
+.right-column {
+   .updates{
+      .list {
+         display: flex;
+         flex-wrap: wrap;
+
+         li {
+            flex: {
+               //noinspection CssInvalidPropertyValue
+               basis: 50%;
+               shrink: 1;
+               grow: 1;
+            }
+            max-width: 100%;
+
+            .item {
+               margin-right: auto;
+               margin-left: auto;
+
+               figure{
+                  overflow: hidden;
+                  max-height: 114px;
+
+                  img{
+                     height: 110px;
+                  }
+
+                  @include screen(max-width, $breakpoint-750) {
+                     max-height: 94px;
+
+                     img {
+                        height: 90px;
+                     }
+                  }
+               }
+
+               .text{
+                  .subtitle{
+                     color: rgba(0, 0, 0, 0.7);
+
+                     &.new {
+                        color: adjust-color(red, $lightness: -20%);
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

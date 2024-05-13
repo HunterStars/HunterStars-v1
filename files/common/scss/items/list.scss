@@ -1,0 +1,224 @@
+@import "common/vars";
+
+.list {
+   margin: 16px 0;
+
+   &, ul {
+      list-style: none;
+      padding-left: 0;
+   }
+
+   ul {
+      margin: 0 0 0 37px;
+      overflow: hidden;
+   }
+
+   li {
+      display: block;
+      position: relative;
+
+      &.subtitle {
+         border-radius: 0;
+         border-top: 1px solid rgba($text_color_primary, .2);
+         margin: 11px 15px 8px 15px;
+         padding-top: 8px;
+
+         &, h1, h2, h3, h4, h5, h6 {
+            color: $text_color_secondary;
+            font-size: .875rem;
+            letter-spacing: .0178571429em;
+            line-height: normal;
+         }
+
+         h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+         }
+      }
+
+      &[open] > ul {
+         max-height: unset;
+      }
+
+      &:not([open]) > ul {
+         max-height: 0;
+      }
+   }
+
+   //Contenedor.
+   &.item, .item, {
+      cursor: pointer;
+      position: relative;
+      padding: 5px 12px;
+      margin: 0 7px;
+      height: auto;
+      font-size: 1.1rem;
+      line-height: normal;
+      min-height: 38px;
+      border-radius: 8px;
+
+      //El contenedor y sub contenedor.
+      &, a {
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         z-index: 1;
+         text-decoration: none;
+
+         &[disabled] {
+            cursor: default;
+            pointer-events: none;
+
+            &, span, button, .m-icons {
+               color: $text_color_secondary;
+            }
+
+            img {
+               filter: grayscale(95%);
+            }
+         }
+
+         .m-icons {
+            margin-left: -4px;
+            font-size: 2em;
+            vertical-align: middle;
+         }
+
+         .m-icons +, figure + {
+            span, div {
+               flex-grow: 1;
+               padding-left: 12px;
+            }
+         }
+
+         //Texto.
+         .text, > span:only-of-type {
+            white-space: nowrap;
+            flex-grow: 1;
+
+            &, span {
+               overflow: hidden;
+               text-overflow: ellipsis;
+            }
+
+            > span, > small {
+               display: block;
+
+               .m-icons {
+                  font-size: 1.35em;
+                  margin: 0 2px 0 0;
+
+                  & + span {
+                     vertical-align: middle;
+                     padding-left: 0;
+                  }
+               }
+
+               //Texto secundario.
+               &:last-child:not(:first-child) {
+                  font-size: 0.95rem;
+                  font-weight: 400;
+                  letter-spacing: .0178571429em;
+                  line-height: normal;
+
+                  span {
+                     vertical-align: bottom;
+                  }
+               }
+            }
+         }
+
+         //Focus
+         &.focus {
+            outline: none;
+
+            .text {
+               .m-icons, span {
+                  color: $bg_color_dark;
+                  transition: opacity 150ms, color 150ms;
+               }
+            }
+         }
+
+         &:not(.focus) {
+            //Textos primarios
+            color: $text_color_primary_light;
+
+            //Textos secundarios.
+            .text {
+               > span, > small {
+                  &:last-child:not(:first-child) {
+                     color: $text_color_secondary;;
+                  }
+               }
+            }
+         }
+      }
+
+      a {
+         flex-grow: 1;
+         min-width: 40px;
+         min-height: 38px;
+      }
+
+      .btn-icon {
+         margin: -3px 12px -3px 0;
+         height: 41px;
+         width: 41px;
+         min-width: inherit;
+         padding: 6px;
+         flex-grow: 0;
+         flex-shrink: 0;
+
+         &:last-child {
+            margin-right: 0;
+         }
+
+         &.m-icons, .m-icons {
+            font-size: 1.8rem;
+         }
+
+         .m-icons {
+            margin: 0;
+         }
+      }
+
+      figure {
+         margin: 0;
+         max-height: 84px;
+
+         &, img {
+            flex-shrink: 0;
+            flex-grow: 0;
+         }
+
+         img {
+            display: inline-block;
+            position: relative;
+            margin: 2px 0 2px -2px;
+            height: 80px;
+            z-index: 0;
+            border-radius: 3px;
+            background: $text_color_secondary_light;
+            max-width: 100%;
+            color: $text-color_secondary;
+         }
+
+         /*Solo se muestra en imágenes rotas*/
+         /*img:before {
+            display:block;
+            box-sizing: border-box;
+            content: "\0026A0  Imagen rota: \A" attr(src);
+            white-space: pre-wrap;
+            position: absolute;
+            background-color:red;
+            color:#fff;
+            text-align:center;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            padding:20px;
+         }*/
+      }
+   }
+}

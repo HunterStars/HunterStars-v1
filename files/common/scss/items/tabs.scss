@@ -1,0 +1,59 @@
+@import "common/vars";
+
+.tabs {
+   .tabs-header {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      //width: 100%;
+
+      &.border-bottom {
+         border-bottom: 1px solid $text_color_secondary_light;
+      }
+
+      .tab.btn {
+         border: none;
+         border-radius: 0;
+         margin: 0;
+         padding: 13px;
+         line-height: normal;
+         opacity: .8;
+         transition: color 155ms, border 155ms;
+         height: 48px;
+         flex: {
+            grow: 1;
+            shrink: 0;
+         }
+
+         &[pressed] {
+            font-weight: bold;
+            color: $bg_color_principal;
+            padding: 12px 13px 10px 13px;
+            border-bottom: 2px solid $bg_color_principal;
+         }
+
+         span {
+            padding: 0 0 0 4px;
+         }
+      }
+
+      .m-icons {
+         font-size: 1.625rem;
+      }
+   }
+
+
+}
+
+.tabs-content {
+   .tab-item {
+      &[show] {
+         display: flex;
+      }
+
+      &:not([show]) {
+         display: none;
+      }
+   }
+}
+

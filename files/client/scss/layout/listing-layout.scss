@@ -1,0 +1,99 @@
+@import "common/vars";
+@import "common/mixins";
+
+.right-column {
+   .new-novels {
+
+   }
+}
+
+.list.mosaic {
+   &:not(.row){
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      flex-flow: row wrap;
+      margin: 0 -10px;
+   }
+
+   &.row{
+      .item{
+         padding: 10px;
+         width: 100%;
+      }
+
+      @include screen(max-width, $breakpoint-375){
+         .col-6{
+            width: 100%;
+         }
+      }
+   }
+
+   li {
+      margin: 0 auto auto auto;
+   }
+
+   .item {
+      flex-direction: column;
+      width: 217px;
+      padding: 0;
+      margin: 0;
+
+      figure {
+         width: 100%;
+         max-height: none;
+         border-radius: 12px;
+         padding: 5px;
+         box-shadow: $shadow-3dp;
+         overflow: hidden;
+         line-height: 0;
+
+         img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 0;
+         }
+      }
+
+      .text {
+         max-width: 100%;
+         padding: 12px 5px;
+         text-align: center;
+
+         .rate {
+            .m-icons {
+               @include star-rate(1.4rem);
+            }
+         }
+      }
+   }
+
+   @include screen(max-width, $breakpoint-750) {
+      margin: 0 -15px;
+
+      .item {
+         width: 165px;
+
+         .text {
+            padding: {
+               left: 0;
+               right: 0;
+            };
+
+            span:first-child {
+               font-size: 1rem;
+               text-overflow: unset;
+               overflow: auto;
+               white-space: normal;
+            }
+
+            .rate {
+               .m-icons {
+                  font-size: 1.1rem;
+               }
+            }
+         }
+      }
+   }
+}
